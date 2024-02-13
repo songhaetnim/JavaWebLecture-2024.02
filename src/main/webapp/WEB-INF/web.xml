@@ -19,4 +19,14 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>Ex02_Parameter</display-name>
+    <servlet-name>Ex02_Parameter</servlet-name>
+    <servlet-class>ch06_basic.Ex02_Parameter</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Ex02_Parameter</servlet-name>
+    <url-pattern>/Ex02_Parameter</url-pattern>
+  </servlet-mapping>
 </web-app>

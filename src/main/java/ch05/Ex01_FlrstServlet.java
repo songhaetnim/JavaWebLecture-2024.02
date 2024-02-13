@@ -8,10 +8,8 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-/**
- * Servlet implementation class Ex01_FlrstServlet
- */
-@WebServlet("/hello")
+// 웹 브라우저 주소창에  localhost:8080/jw/hello 을 입력했을 경우 처리하는 코드
+@WebServlet({"/hello", "/ch05/hello"})
 public class Ex01_FlrstServlet extends HttpServlet {
 	// Get 방식의 요청이 왔을때 처리해주는 코드
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
