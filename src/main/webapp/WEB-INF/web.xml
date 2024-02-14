@@ -29,4 +29,14 @@
     <servlet-name>Ex02_Parameter</servlet-name>
     <url-pattern>/Ex02_Parameter</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Ex03_Calculator</display-name>
+    <servlet-name>Ex03_Calculator</servlet-name>
+    <servlet-class>ch06_basic.Ex03_Calculator</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Ex03_Calculator</servlet-name>
+    <url-pattern>/Ex03_Calculator</url-pattern>
+  </servlet-mapping>
 </web-app>
