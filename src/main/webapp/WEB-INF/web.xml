@@ -39,4 +39,14 @@
     <servlet-name>Ex03_Calculator</servlet-name>
     <url-pattern>/Ex03_Calculator</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Ex04_RegisterMember</display-name>
+    <servlet-name>Ex04_RegisterMember</servlet-name>
+    <servlet-class>ch06_basic.Ex04_RegisterMember</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Ex04_RegisterMember</servlet-name>
+    <url-pattern>/Ex04_RegisterMember</url-pattern>
+  </servlet-mapping>
 </web-app>
