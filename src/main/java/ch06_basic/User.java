@@ -26,6 +26,12 @@ public class User {
 		this.uname = uname;
 		this.email = email;
 	}
+	
+	public User(String uid, String pwd) {
+		super();
+		this.uid = uid;
+		this.pwd = pwd;
+	}
 	@Override
 	public String toString() {
 		return "User [uid=" + uid + ", pwd=" + pwd + ", uname=" + uname + ", email=" + email + ", regDate=" + regDate
