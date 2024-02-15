@@ -59,4 +59,24 @@
     <servlet-name>Ex05_login</servlet-name>
     <url-pattern>/Ex05_login</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Ex01_Search</display-name>
+    <servlet-name>Ex01_Search</servlet-name>
+    <servlet-class>ch07_dao.Ex01_Search</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Ex01_Search</servlet-name>
+    <url-pattern>/Ex01_Search</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Ex02_List</display-name>
+    <servlet-name>Ex02_List</servlet-name>
+    <servlet-class>ch07_dao.Ex02_List</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Ex02_List</servlet-name>
+    <url-pattern>/Ex02_List</url-pattern>
+  </servlet-mapping>
 </web-app>
