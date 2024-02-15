@@ -17,7 +17,7 @@
 		<tr><td>등록일자</td><td>${user.regDate}</td></tr>
 		<tr><td>삭제여부</td><td>${user.isDeleted}</td></tr>
 	</table>
-	<button onclick="location.href='/jw/ch06/redister'">재실행</button>
+	<button onclick="location.href='/jw/ch06/register'">재실행</button>
 		
 	
 	

@@ -15,7 +15,7 @@ public class Ex04_RegisterMember extends HttpServlet {
        
 	//form 을 제공해주는 역활
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher rd = request.getRequestDispatcher("/ch06/registerForm.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("/ch06/registerFormBootstrap.jsp");
 		rd.forward(request, response);
 	}
 
