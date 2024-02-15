@@ -15,15 +15,15 @@ public class Ex02_List extends HttpServlet {
    private static final long serialVersionUID = 1L;
 
    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-      String code = request.getParameter("code");
-      code = (code == null || code.equals("")) ? "KOR" : code;
+      String district = request.getParameter("district");
+      district = (district == null || district.equals("")) ? "Kyonggi" : district;
       String num_ = request.getParameter("num");
-      int num = (num_ == null || num_.equals("")) ? 10 : Integer.parseInt(request.getParameter(num_));
+      int num = (num_ == null || num_.equals("")) ? 10 : Integer.parseInt(num_);
       String offset_ = request.getParameter("offset");
-      int offset = (offset_ == null || offset_.equals("")) ? 0 : Integer.parseInt(request.getParameter(offset_));
+      int offset = (offset_ == null || offset_.equals("")) ? 0 : Integer.parseInt(offset_);
       
       CityDao cDao = new CityDao();
-      List<City> list = cDao.getCityList(code, num, offset);
+      List<City> list = cDao.getCityList(district, num, offset);
       list.forEach(x -> System.out.println(x));
 
 //      RequestDispatcher rd = request.getRequestDispatcher("/ch07/list.jsp");

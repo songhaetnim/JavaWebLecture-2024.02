@@ -79,4 +79,34 @@
     <servlet-name>Ex02_List</servlet-name>
     <url-pattern>/Ex02_List</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Ex03_lnsert</display-name>
+    <servlet-name>Ex03_lnsert</servlet-name>
+    <servlet-class>ch07_dao.Ex03_lnsert</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Ex03_lnsert</servlet-name>
+    <url-pattern>/Ex03_lnsert</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Ex04_Delete</display-name>
+    <servlet-name>Ex04_Delete</servlet-name>
+    <servlet-class>ch07_dao.Ex04_Delete</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Ex04_Delete</servlet-name>
+    <url-pattern>/Ex04_Delete</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Ex05_Update</display-name>
+    <servlet-name>Ex05_Update</servlet-name>
+    <servlet-class>ch07_dao.Ex05_Update</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Ex05_Update</servlet-name>
+    <url-pattern>/Ex05_Update</url-pattern>
+  </servlet-mapping>
 </web-app>
