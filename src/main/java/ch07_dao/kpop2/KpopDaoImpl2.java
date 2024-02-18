@@ -1,6 +1,7 @@
 package ch07_dao.kpop2;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.time.LocalDate;
@@ -55,13 +56,42 @@ public class KpopDaoImpl2<kpop2> implements KpopDao2 {
 
 	@Override
 	public Artist getArtist(int aid) {
-		
+		Connection conn = getConnection();
+		String sql = "select * from girl_group where gid=?";
+		Artist artist = null;
+		try {
+			 PreparedStatement pstmt = conn.prepareStatement(sql);
+			 pstmt.setInt(1, aid);
+			 
+			 ResultSet rs = pstmt.executeQuery();
+			 while (rs.next()) {
+				 artist = new Artist(rs.getInt(1), rs.getString(2),
+						 LocalDate.parse(rs.getString(3)), rs.getInt(4));
+			 }
+			 rs.close(); pstmt.close(); conn.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return null;
 	}
 
 	@Override
 	public Song getSong(int sid) {
-		// TODO Auto-generated method stub
+		Connection conn = getConnection();
+		String sql = "select * from song where sid=?";
+		Song song = null;
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, sid);
+			
+			ResultSet rs = pstmt.executeQuery();
+			while (rs.next()) {
+				song = new Song(rs.getInt(1), rs.getString(2), rs.getString(3));
+			}
+			while (rs.next())
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 		return null;
 	}
 
