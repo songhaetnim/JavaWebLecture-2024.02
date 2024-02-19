@@ -1,6 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +10,6 @@
 		th { padding: 3px; text-align: center; }
 		td { padding: 3px; }
 	</style>
-
 </head>
 <body style="margin: 50px">
 	<h1>
@@ -36,8 +35,20 @@
 			<td>${user.email}</td>
 			<td>${user.regDate}</td>
 			<td>
-				<a href="/jw/ch09/user/update?uid=${user.uid}">수정</a>
-				<a href="/jw/ch09/user/delete?uid=${user.uid}">삭제</a>
+				<!-- 본인만 수정 가능 -->
+				<c:if test="${user.uid eq sessUid}">	
+					<a href="/jw/ch09/user/update?uid=${user.uid}">수정</a>
+				</c:if>
+				<c:if test="${user.uid ne sessUid}">
+					<a href="#" disabled>수정</a>
+				</c:if>
+				<!-- 본인 또는 관리자만 삭제 가능 -->
+				<c:if test="${(user.uid eq sessUid) or (sessUid eq 'admin')}">
+					<a href="/jw/ch09/user/delete?uid=${user.uid}">삭제</a>
+				</c:if>
+				<c:if test="${(user.uid ne sessUid) and (sessUid ne 'admin')}">
+					<a href="#" disabled>삭제</a>
+				</c:if>
 			</td>
 		</tr>
 		</c:forEach>
