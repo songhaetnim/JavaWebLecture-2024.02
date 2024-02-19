@@ -70,6 +70,14 @@ public class UserController extends HttpServlet {
 			response.sendRedirect("/jw/ch09/user/list?page=1");
 			break;
 			
+		case "register":
+			if(method.equals("GET")) {
+			rd = request.getRequestDispatcher("/ch09/user/register.jsp");
+			rd.forward(request, response);
+			} else {
+				
+			}
+			break;
 		}
 	}
 
