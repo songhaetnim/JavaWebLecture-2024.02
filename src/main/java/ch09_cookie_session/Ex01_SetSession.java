@@ -35,14 +35,6 @@ public class Ex01_SetSession extends HttpServlet {
 		
 		 RequestDispatcher rd = request.getRequestDispatcher("/ch09/session.jsp");
 		 rd.forward(request, response);
-		 
-		 
-		 
-		 
-		
-	
-
-		 
 
 	}
 }

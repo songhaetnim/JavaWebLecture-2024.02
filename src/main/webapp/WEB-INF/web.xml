@@ -149,4 +149,24 @@
     <servlet-name>Ex02_Get</servlet-name>
     <url-pattern>/Ex02_Get</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Ex03_SetCookit</display-name>
+    <servlet-name>Ex03_SetCookit</servlet-name>
+    <servlet-class>ch09_cookie_session.Ex03_SetCookit</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Ex03_SetCookit</servlet-name>
+    <url-pattern>/Ex03_SetCookit</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Ex04_GetCookie</display-name>
+    <servlet-name>Ex04_GetCookie</servlet-name>
+    <servlet-class>ch09_cookie_session.Ex04_GetCookie</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Ex04_GetCookie</servlet-name>
+    <url-pattern>/Ex04_GetCookie</url-pattern>
+  </servlet-mapping>
 </web-app>

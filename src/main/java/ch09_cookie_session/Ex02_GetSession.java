@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Arrays;
 
-@WebServlet("/ch09/setSession")
+@WebServlet("/ch09/getSession")
 public class Ex02_GetSession extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

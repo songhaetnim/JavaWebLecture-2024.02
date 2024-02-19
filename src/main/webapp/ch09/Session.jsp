@@ -17,7 +17,7 @@
 	<c:if test="${empty uid}">        <!-- session scope의 uid 변수에 값이 없는 경우 -->
 		<h3>로그인 하세요.</h3>
 	</c:if>
-	<c:if test="${not empty uid}">  <!-- 로그인 하였으면 -->
+	<c:if test="${not empty uid}">    <!-- 로그인 하였으면 -->
 		<h3>${uid}님 환영합니다.</h3>
 	</c:if>
 </body>
