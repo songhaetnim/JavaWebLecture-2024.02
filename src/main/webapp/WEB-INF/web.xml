@@ -129,4 +129,24 @@
     <servlet-name>KpopController2</servlet-name>
     <url-pattern>/KpopController2</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ex02_SetSession</display-name>
+    <servlet-name>ex02_SetSession</servlet-name>
+    <servlet-class>ch09_cookie.ex02_SetSession</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ex02_SetSession</servlet-name>
+    <url-pattern>/ex02_SetSession</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Ex02_Get</display-name>
+    <servlet-name>Ex02_Get</servlet-name>
+    <servlet-class>ch09_cookie.Ex02_Get</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Ex02_Get</servlet-name>
+    <url-pattern>/Ex02_Get</url-pattern>
+  </servlet-mapping>
 </web-app>
