@@ -25,8 +25,8 @@ public class UserController extends HttpServlet {
 		String method = request.getMethod();
 		HttpSession session = request.getSession();
 		RequestDispatcher rd = null;
-		String uid = null, pwd = null, pwd2 = null, uname = null, email = null;
-		String msg = "", url = "", hashedPwd ="";
+		String uid = "", pwd = "", pwd2 = "", uname = "", email = "", hashedPwd = "";
+		String msg = "", url = "";
 		User user = null;
 		
 		switch (action) {
@@ -41,7 +41,8 @@ public class UserController extends HttpServlet {
 			
 		case "login":
 			if (method.equals("GET")) {
-				rd = request.getRequestDispatcher("/ch09/user/login.jsp");
+//				rd = request.getRequestDispatcher("/ch09/user/login.jsp");
+				rd = request.getRequestDispatcher("/ch09/user/loginBS.jsp");
 				rd.forward(request, response);
 			} else {
 				uid = request.getParameter("uid");
@@ -73,9 +74,11 @@ public class UserController extends HttpServlet {
 			break;
 			
 		case "register":
-			if(method.equals("GET")) {
-			rd = request.getRequestDispatcher("/ch09/user/register.jsp");
-			rd.forward(request, response);
+			if (method.equals("GET")) {
+				session.invalidate();
+//				rd = request.getRequestDispatcher("/ch09/user/register.jsp");
+				rd = request.getRequestDispatcher("/ch09/user/registerBS.jsp");
+				rd.forward(request, response);
 			} else {
 				uid = request.getParameter("uid");
 				pwd = request.getParameter("pwd");
@@ -104,7 +107,8 @@ public class UserController extends HttpServlet {
 			if (method.equals("GET")) {
 				uid = request.getParameter("uid");
 				user = uSvc.getUserByUid(uid);
-				rd = request.getRequestDispatcher("/ch09/user/update.jsp");
+//				rd = request.getRequestDispatcher("/ch09/user/update.jsp");
+				rd = request.getRequestDispatcher("/ch09/user/updateBS.jsp");
 				request.setAttribute("user", user);
 				rd.forward(request, response);
 			} else {
