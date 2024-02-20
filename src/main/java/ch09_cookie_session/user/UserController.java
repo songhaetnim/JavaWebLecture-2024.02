@@ -30,12 +30,19 @@ public class UserController extends HttpServlet {
 		User user = null;
 		
 		switch (action) {
-		case "list":
-			String page_ = request.getParameter("page");
+		case "list":                 //page -> HTML에서 name="page"일때 불러와라 or
+									//http://localhost:8080/jw/ch09/user/list?page=1 <- 주소로 입력받아 실행가능하다.
+			String page_ = request.getParameter("page");   //getParameter ==> 값을 가져온다.
 			int page = (page_ == null || page_.equals("")) ? 1 : Integer.parseInt(page_);
+			// == 는 int(정수용) ,equals 는 String(문자열용)    ^강제로 인트값으로 변환해라.
+			//("")) <== 빈값일때 ? <== 참이다.  , : <== 거짓일때 표현
+			// int page = (page_ == null || page_.equals("")) ? 1 : Integer.parseInt(page_); <== if (저 한줄이 조건문이다)
 			List<User> list = uSvc.getUserList(page);
-			request.setAttribute("list", list);
-			rd = request.getRequestDispatcher("/ch09/user/list.jsp");
+			//ServiceIMPL에서 getUserList <- 로 보내서 LIST 값을 불러온다.
+			request.setAttribute("list", list);  // <- List 값을  HTML로 보낸다.
+//			rd = request.getRequestDispatcher("/ch09/user/list.jsp");
+			rd = request.getRequestDispatcher("/ch09/user/listBS.jsp");
+			//  위에거가 다 실행이 되고 "/ch09/user/listBS.jsp" <- 여기로 보내진다 (웹)
 			rd.forward(request, response);
 			break;
 			
