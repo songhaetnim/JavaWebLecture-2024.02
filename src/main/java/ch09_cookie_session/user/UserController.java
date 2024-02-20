@@ -11,6 +11,8 @@ import jakarta.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
+import org.mindrot.jbcrypt.BCrypt;
+
 @WebServlet({"/ch09/user/list", "/ch09/user/register", "/ch09/user/update", 
 			 "/ch09/user/delete", "/ch09/user/login", "/ch09/user/logout"})
 public class UserController extends HttpServlet {
@@ -24,7 +26,7 @@ public class UserController extends HttpServlet {
 		HttpSession session = request.getSession();
 		RequestDispatcher rd = null;
 		String uid = null, pwd = null, pwd2 = null, uname = null, email = null;
-		String msg = "", url = "";
+		String msg = "", url = "", hashedPwd ="";
 		User user = null;
 		
 		switch (action) {
@@ -75,8 +77,58 @@ public class UserController extends HttpServlet {
 			rd = request.getRequestDispatcher("/ch09/user/register.jsp");
 			rd.forward(request, response);
 			} else {
-				
+				uid = request.getParameter("uid");
+				pwd = request.getParameter("pwd");
+				pwd2 = request.getParameter("pwd2");
+				uname = request.getParameter("uname");
+				email = request.getParameter("email");
+				if (uSvc.getUserByUid(uid) != null) {
+					rd = request.getRequestDispatcher("/ch09/user/alertMsg.jsp");
+					request.setAttribute("msg", "아이디가 중복입니다.");
+					request.setAttribute("url", "/jw/ch09/user/register");
+					rd.forward(request, response); 
+				} else if (pwd.equals(pwd2)) {
+					user = new User(uid, pwd, uname, email);
+					uSvc.registerUser(user);
+					response.sendRedirect("/jw/ch09/user/list?page=1");
+				} else {
+					rd = request.getRequestDispatcher("/ch09/user/alertMsg.jsp");
+					request.setAttribute("msg", "패스워드 입력이 잘못되었습니다.");
+					request.setAttribute("url", "/jw/ch09/user/register");
+					rd.forward(request, response);
+				}
 			}
+			break;
+		
+		case "update":
+			if (method.equals("GET")) {
+				uid = request.getParameter("uid");
+				user = uSvc.getUserByUid(uid);
+				rd = request.getRequestDispatcher("/ch09/user/update.jsp");
+				request.setAttribute("user", user);
+				rd.forward(request, response);
+			} else {
+				uid = request.getParameter("uid");
+				pwd = request.getParameter("pwd");
+				pwd2 = request.getParameter("pwd2");
+				hashedPwd = request.getParameter("hashedPwd");
+				uname = request.getParameter("uname");
+				email = request.getParameter("email");
+				if (pwd != null && pwd.equals(pwd2))
+					hashedPwd = BCrypt.hashpw(pwd, BCrypt.gensalt());
+				user = new User(uid, hashedPwd, uname, email);
+				uSvc.updateUser(user);
+				response.sendRedirect("/jw/ch09/user/list?page=1");
+			}
+			break;
+			
+		case "delete":
+			uid = request.getParameter("uid");
+			uSvc.deleteUser(uid);
+			String sessUid = (String) session.getAttribute("sessUid");
+			if (!sessUid.equals("admin"))
+				session.invalidate();
+			response.sendRedirect("/jw/ch09/user/list?page=1");
 			break;
 		}
 	}
