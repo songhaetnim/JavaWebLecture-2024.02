@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd" version="6.0">
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd" version="6.0">
   <servlet>
     <description></description>
     <display-name>Ex01_FlrstServlet</display-name>
@@ -208,4 +208,44 @@
     <filter-name>EncodingFilter</filter-name>
     <url-pattern>/EncodingFilter</url-pattern>
   </filter-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ch14_el</display-name>
+    <servlet-name>ch14_el</servlet-name>
+    <servlet-class>ch14.ch14_el</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ch14_el</servlet-name>
+    <url-pattern>/ch14_el</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ch14_</display-name>
+    <servlet-name>ch14_</servlet-name>
+    <servlet-class>ch14.ch14_</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ch14_</servlet-name>
+    <url-pattern>/ch14_</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Ex04_Pojo</display-name>
+    <servlet-name>Ex04_Pojo</servlet-name>
+    <servlet-class>ch14.Ex04_Pojo</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Ex04_Pojo</servlet-name>
+    <url-pattern>/Ex04_Pojo</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Ex11_Core</display-name>
+    <servlet-name>Ex11_Core</servlet-name>
+    <servlet-class>ch14_el_jstl.Ex11_Core</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Ex11_Core</servlet-name>
+    <url-pattern>/Ex11_Core</url-pattern>
+  </servlet-mapping>
 </web-app>
