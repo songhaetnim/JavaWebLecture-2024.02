@@ -12,6 +12,7 @@ import project.service.UserService;
 import project.service.UserServiceImpl;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.mindrot.jbcrypt.BCrypt;
@@ -37,13 +38,22 @@ public class UserController extends HttpServlet {
 									//http://localhost:8080/jw/ch09/user/list?page=1 <- 주소로 입력받아 실행가능하다.
 			String page_ = request.getParameter("page");   //getParameter ==> 값을 가져온다.
 			int page = (page_ == null || page_.equals("")) ? 1 : Integer.parseInt(page_);
+			session.setAttribute("currentUserPage",page);
 			// == 는 int(정수용) ,equals 는 String(문자열용)    ^강제로 인트값으로 변환해라.
 			//("")) <== 빈값일때 ? <== 참이다.  , : <== 거짓일때 표현
 			// int page = (page_ == null || page_.equals("")) ? 1 : Integer.parseInt(page_); <== if (저 한줄이 조건문이다)
-			List<User> list = uSvc.getUserList(page);
+			List<User> userList = uSvc.getUserList(page);
 			//ServiceIMPL에서 getUserList <- 로 보내서 LIST 값을 불러온다.
-			request.setAttribute("list", list);  // <- List 값을  HTML로 보낸다.
-//			rd = request.getRequestDispatcher("/ch09/user/list.jsp");
+			request.setAttribute("userList",userList);  // <- List 값을  HTML로 보낸다.
+//			//for pagination
+			int totalUsers = uSvc.getUserCount();
+			int totalPages = (int) Math.ceil(totalUsers * 1.0 /uSvc.COUNT_PER_PAGE);
+			List<String> pageList = new ArrayList<String>();
+			for (int i = 1; i <= totalPages; i++)
+				pageList.add(String.valueOf(i));
+			request.setAttribute("pageList",pageList);
+			
+			rd = request.getRequestDispatcher("/ch09/user/list.jsp");
 			rd = request.getRequestDispatcher("/WEB-INF/view/user/list.jsp");
 			//  위에거가 다 실행이 되고 "/ch09/user/listBS.jsp" <- 여기로 보내진다 (웹)
 			rd.forward(request, response);

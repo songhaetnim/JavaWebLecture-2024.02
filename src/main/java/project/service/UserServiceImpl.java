@@ -56,7 +56,11 @@ private UserDao userDao = new UserDao();
 		return WRONG_PASSWORD;
 	}
 
-
-	
+	@Override
+	public int getUserCount() {
+		return userDao.gerUserCount();
+	}
 
 }
+	
+

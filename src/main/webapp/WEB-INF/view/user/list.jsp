@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<%@ include file="../common/_head.jspf"%>
+	<%@ include file="../common/_head.jspf"%>
 <style>
 td, th {
 	text-align: center;
@@ -46,7 +46,7 @@ td, th {
 								<th>등록일</th>
 								<th>액션</th>
 							</tr>
-							<c:forEach var="user" items="${list}">
+							<c:forEach var="user" items="${userList}">
 								<tr>
 									<td>${user.uid}</td>
 									<td>${user.uname}</td>
@@ -73,6 +73,16 @@ td, th {
 								</tr>
 							</c:forEach>
 						</table>
+						<%--pagination --%>
+						<ul class="pagination justify-content-center mt-4">
+						   <li class="page-item"><a class="page-link" href="#"><i class="fa-solid fa-less-than"></i></a></li>
+						   <c:forEach var="page" items="${pageList}">
+						     <li class="page-item ${currentUserPage eq page ? 'active' :''}">
+						    	 <a class="page-link " href="/jw/bbs/user/list?page=${page}">${page}</a>
+						     </li>
+						   </c:forEach>
+						   <li class="page-item"><a class="page-link" href="#"><i class="fa-solid fa-greater-than"></i></a></li>
+						</ul>	
 					</div>
 					<div class="col-1"></div>
 				</div>
