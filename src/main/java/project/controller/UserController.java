@@ -73,7 +73,7 @@ public class UserController extends HttpServlet {
 					session.setAttribute("sessUid", uid);
 					session.setAttribute("sessUname", user.getUname());
 					msg = user.getUname() + "님 환영합니다.";
-					url = "/jw/bbs/user/list?page=1";
+					url = "/jw/bbs/board/list?p=1";
 				} else if (result == uSvc.WRONG_PASSWORD) {
 					msg = "패스워드가 틀립니다.";
 					url = "/jw/bbs/user/login";

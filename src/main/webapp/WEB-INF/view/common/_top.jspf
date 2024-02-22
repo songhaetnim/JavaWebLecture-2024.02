@@ -6,7 +6,7 @@
 			<ul class="navbar-nav">
 				<a class="navbar-brand mx-5" href="#"><img src="/jw/img/ck-logo.png" height="36"></a>
 				<li class="nav-item ms-3">
-					<a class="nav-link" href="#"><i class="far fa-list-alt"></i> 게시판</a>
+					<a class="nav-link" href="/jw/bbs/board/list?p=1"><i class="far fa-list-alt"></i> 게시판</a>
 				</li>
 				<li class="nav-item ms-3">
 					<a class="nav-link" href="/jw/bbs/user/list?page=1"><i class="fas fa-user-friends"></i> 사용자</a>

@@ -248,4 +248,14 @@
     <servlet-name>Ex11_Core</servlet-name>
     <url-pattern>/Ex11_Core</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>BoaedControll</display-name>
+    <servlet-name>BoaedControll</servlet-name>
+    <servlet-class>project.controller.BoaedControll</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BoaedControll</servlet-name>
+    <url-pattern>/BoaedControll</url-pattern>
+  </servlet-mapping>
 </web-app>
