@@ -7,14 +7,13 @@ import project.entilty.Board;
 
 
 public interface BoardService {
-	
 	public static final int COUNT_PER_PAGE = 10;
 
 	List<Board> getBoardList(int page, String field, String query);
 	
 	Board getBoard(int bid);
 	
-	int getBoardCount();
+	int getBoardCount(String field, String query);
 	
 	void insertBoard(Board board);
 	
@@ -25,5 +24,5 @@ public interface BoardService {
 	void increaseViewCount(int bid);
 	
 	void increaseReplyCount(int bid);
-	
+
 }
