@@ -26,8 +26,8 @@
 							<input type="hidden" name="hashedPwd" value=${user.pwd}>
 							<table class="table table-borderless">
 								<tr>
-									<td style="width: 40%;"><label class="col-form-label">사용자 ID</label></td>
-									<td style="width: 60%;"><input type="text" class="form-control" value="${user.uid}" disabled></td>
+									<td style="width: 40%;"><label class="col-form-label">제목</label></td>
+									<td style="width: 60%;"><input type="text" class="form-control"  disabled></td>
 								</tr>
 								<tr>
 									<td><label class="col-form-label">패스워드</label></td>

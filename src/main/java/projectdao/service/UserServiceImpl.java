@@ -1,15 +1,15 @@
-package project.service;
+package projectdao.service;
 
 import java.util.List;
 
 import org.mindrot.jbcrypt.BCrypt;
 
-import project.dao.UserDao;
-import project.entilty.User;
+import projectdao.dao.UserDao;
+import projectdao.entilty.User;
 
-public class UserServiceImpl  implements UserService{
 
-private UserDao userDao = new UserDao();
+public class UserServiceImpl implements UserService {
+	private UserDao userDao = new UserDao();
 	
 	@Override
 	public User getUserByUid(String uid) {
@@ -58,9 +58,7 @@ private UserDao userDao = new UserDao();
 
 	@Override
 	public int getUserCount() {
-		return userDao.gerUserCount();
+		return userDao.getUserCount();
 	}
 
 }
-	
-

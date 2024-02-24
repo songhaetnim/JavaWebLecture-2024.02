@@ -1,4 +1,4 @@
-package project.dao;
+package projectdao.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -12,11 +12,11 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-import project.entilty.User;
+import projectdao.entilty.User;
+
 
 public class UserDao {
-	
-	
+
 	public Connection getConnection() {
 		Connection conn = null;
 		try {
@@ -28,6 +28,7 @@ public class UserDao {
 		}
 		return conn;
 	}
+	
 	public User getUserByUid(String uid) {
 		Connection conn = getConnection();
 		String sql = "select * from users where uid=?";
@@ -41,8 +42,7 @@ public class UserDao {
 				user = new User(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4),
 								LocalDate.parse(rs.getString(5)), rs.getInt(6));
 			}
-			rs.close(); pstmt.close();
-			conn.close();
+			rs.close(); pstmt.close(); conn.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -65,8 +65,7 @@ public class UserDao {
 									LocalDate.parse(rs.getString(5)), rs.getInt(6));
 				list.add(user);
 			}
-			rs.close(); pstmt.close();
-			conn.close();
+			rs.close(); pstmt.close(); conn.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -84,8 +83,7 @@ public class UserDao {
 			pstmt.setString(4, user.getEmail());
 			
 			pstmt.executeUpdate();
-			pstmt.close();
-			conn.close();
+			pstmt.close(); conn.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -102,8 +100,7 @@ public class UserDao {
 			pstmt.setString(4, user.getUid());
 			
 			pstmt.executeUpdate();
-			pstmt.close();
-			conn.close();
+			pstmt.close(); conn.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -117,13 +114,13 @@ public class UserDao {
 			pstmt.setString(1, uid);
 			
 			pstmt.executeUpdate();
-			pstmt.close();
-			conn.close();
+			pstmt.close(); conn.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	}
-	public int gerUserCount() {
+	}	
+	
+	public int getUserCount() {
 		Connection conn = getConnection();
 		String sql = "select count(uid) from users where isDeleted=0";
 		int count = 0;
@@ -132,9 +129,8 @@ public class UserDao {
 			ResultSet rs = stmt.executeQuery(sql);
 			while (rs.next()) {
 				count = rs.getInt(1);
-				
 			}
-			rs.close();stmt.close();conn.close();
+			rs.close(); stmt.close(); conn.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

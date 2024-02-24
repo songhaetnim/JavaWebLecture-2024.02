@@ -1,15 +1,15 @@
-package project.entilty;
+package projectdao.entilty;
 
 import java.time.LocalDate;
 
 public class User {
-
 	private String uid;
 	private String pwd;
 	private String uname;
 	private String email;
 	private LocalDate regDate;
 	private int isDeleted;
+	
 	public User() { }
 	public User(String uid, String pwd, String uname, String email) {
 		this.uid = uid;
@@ -25,11 +25,13 @@ public class User {
 		this.regDate = regDate;
 		this.isDeleted = isDeleted;
 	}
+	
 	@Override
 	public String toString() {
 		return "User [uid=" + uid + ", uname=" + uname + ", email=" + email + ", regDate=" + regDate
 				+ ", isDeleted=" + isDeleted + "]";
 	}
+	
 	public String getUid() {
 		return uid;
 	}
@@ -67,5 +69,3 @@ public class User {
 		this.isDeleted = isDeleted;
 	}
 }
-	
-

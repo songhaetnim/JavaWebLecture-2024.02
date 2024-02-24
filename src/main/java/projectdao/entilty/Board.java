@@ -1,4 +1,4 @@
-package project.entilty;
+package projectdao.entilty;
 
 import java.time.LocalDateTime;
 
@@ -21,11 +21,10 @@ public class Board {
 		this.uid = uid;
 	}
 	// 게시글 수정할 때 필요한 생성자
-	public Board(int bid, String title, String content, String uid) {
+	public Board(int bid, String title, String content) {
 		this.bid = bid;
 		this.title = title;
 		this.content = content;
-		this.uid = uid;
 	}
 	// 게시글 목록 조회시 필요한 생성자
 	public Board(int bid, String title, LocalDateTime modTime, int viewCount, int replyCount, String uname) {

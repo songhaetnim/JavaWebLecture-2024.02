@@ -258,4 +258,34 @@
     <servlet-name>BoaedControll</servlet-name>
     <url-pattern>/BoaedControll</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UserController2</display-name>
+    <servlet-name>UserController2</servlet-name>
+    <servlet-class>projectdao.controller.UserController2</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserController2</servlet-name>
+    <url-pattern>/UserController2</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>BoardController2</display-name>
+    <servlet-name>BoardController2</servlet-name>
+    <servlet-class>projectdao.controller.BoardController2</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BoardController2</servlet-name>
+    <url-pattern>/BoardController2</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UserController3</display-name>
+    <servlet-name>UserController3</servlet-name>
+    <servlet-class>projectdao.controller.UserController3</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserController3</servlet-name>
+    <url-pattern>/UserController3</url-pattern>
+  </servlet-mapping>
 </web-app>

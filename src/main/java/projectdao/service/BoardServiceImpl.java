@@ -1,9 +1,10 @@
-package project.service;
+package projectdao.service;
 
 import java.util.List;
 
-import project.dao.BoardDao;
-import project.entilty.Board;
+import projectdao.dao.BoardDao;
+import projectdao.entilty.Board;
+
 
 public class BoardServiceImpl implements BoardService {
 	private BoardDao bDao = new BoardDao();
@@ -33,8 +34,7 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public void updateBoard(Board board) {
-		// TODO Auto-generated method stub
-		
+		bDao.updateBoard(board);
 	}
 
 	@Override

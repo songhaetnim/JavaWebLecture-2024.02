@@ -1,10 +1,8 @@
-package project.service;
+package projectdao.service;
 
 import java.util.List;
 
-import project.entilty.Board;
-
-
+import projectdao.entilty.Board;
 
 public interface BoardService {
 	public static final int COUNT_PER_PAGE = 10;

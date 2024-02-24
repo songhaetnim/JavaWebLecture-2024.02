@@ -8,13 +8,12 @@
 	<%@ include file="../common/_head.jspf" %>
 	<style>
 		td, th { text-align: center; }
-		.disabled-link { pointer-events: none; }
 	</style>
 	<script>
 		function search() {
 			const field = $('#field').val();
 			const query = $('#query').val();
-			location.href = '/jw/bbs/board/list?p=${currentBoardPage}&f=' + field + '&q=' + query;
+			const uri = '/jw/bbs/board/list?p=${currentBoardPage}&f=' + field + '&q=' + query
 		}
 	</script>
 </head>
@@ -67,7 +66,7 @@
 					<tr>
 						<td>${board.bid}</td>
 						<td>
-							<a href="/jw/bbs/board/detail?bid=${board.bid}">${board.title}</a>
+							<a href="/jw/bbs/board/detail?bid=${board.bid}&uid=${board.uid}">${board.title}</a>
 							<c:if test="${board.replyCount ge 1}">
 								<span class="text-danger">[${board.replyCount}]</span>
 							</c:if>
