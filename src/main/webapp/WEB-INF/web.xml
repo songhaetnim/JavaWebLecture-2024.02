@@ -288,4 +288,14 @@
     <servlet-name>UserController3</servlet-name>
     <url-pattern>/UserController3</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>tes1</display-name>
+    <servlet-name>tes1</servlet-name>
+    <servlet-class>tes1.tes1</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>tes1</servlet-name>
+    <url-pattern>/tes1</url-pattern>
+  </servlet-mapping>
 </web-app>
