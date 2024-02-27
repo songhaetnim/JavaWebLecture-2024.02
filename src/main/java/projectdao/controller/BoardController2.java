@@ -50,6 +50,7 @@ public class BoardController2 extends HttpServlet {
 			List<Board> boardList = bSvc.getBoardList(page, field, query);
 			request.setAttribute("boardList", boardList);
 			
+			
 			// for pagination
 			int totalItems = bSvc.getBoardCount(field, query);
 			int totalPages = (int) Math.ceil(totalItems * 1.0 / bSvc.COUNT_PER_PAGE);
